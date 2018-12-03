@@ -20,7 +20,7 @@ if __name__ == "__main__":
     l = [random.randint(0, 100) for i in range(args.size)]
     temp = l.copy()
 
-    print(l)
+    #print(l)
 
     if args.median:
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
 
-    print(l)
+    #print(l)
 
     #Execution of selectionSort
 
