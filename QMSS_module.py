@@ -1,5 +1,6 @@
+from selection.__init__ import printSwitch
 from random import *
-from selection.Selection import partitionDet, recursiveQuickSelectRand, recursiveQuickSelectDet
+from selection.Selection import partitionDet, recursiveQuickSelectRand, recursiveQuickSelectDet, condOutput
 
 def quickSelectSort(l, select):
     assert type(l) == list, "Error! Not a list"
@@ -15,7 +16,7 @@ def recursiveQuickSelectSort(l, left, right, select):
         return
 
     if select == 0:
-        pivot = sampleMedianSelect(l[left : right + 1])
+        pivot = sampleMedianSelect(l, left, right, k)
     
     elif select == 1 and not (k <= 0 or k > len(l)):
         pivot = recursiveQuickSelectRand(l, left, right, k)
@@ -35,7 +36,7 @@ def recursiveQuickSelectSort(l, left, right, select):
     #print(l)
 
 
-def sampleMedianSelect(l):
+def sampleMedianSelect(l, left, right, k):
     """
     #@param l: list 
     #@return pivot: int
@@ -44,7 +45,25 @@ def sampleMedianSelect(l):
     #Costruisco l'insieme V di 5 elementi scelti a caso da l
     
     """
-    m = 5
+    if left == right:
+        return l[left]
+    
+    vperno = sampleMedian(l[left : right + 1] , 5)
+    
+    # Il resto del codice è analogo a quello del quickSelectRand
+    
+    perno = partitionDet(l, left, right, vperno)
+
+    posperno = perno + 1
+    if posperno == k:
+        return l[perno]
+    elif posperno > k:
+        return sampleMedianSelect(l, left, perno - 1, k)
+    else:
+        return sampleMedianSelect(l, perno + 1, right, k)
+    
+def sampleMedian (l, m):  
+   
     i = 0
     V = []
     temp = l.copy()
@@ -65,7 +84,8 @@ def sampleMedianSelect(l):
             if V[j] < V[min_pos]:
                 min_pos = j
 
-        V[min_pos], V[k] = V[k], V[min_pos]  # m
+        V[min_pos], V[k] = V[k], V[min_pos]  # mette m al posto giusto
 
-    pivot = V[int(len(V) / 2)]
-    return pivot
+    return V[int(len(V) / 2)]
+
+
