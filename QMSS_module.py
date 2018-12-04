@@ -48,7 +48,8 @@ def sampleMedianSelect(l, left, right, k):
     if left == right:
         return l[left]
     
-    vperno = sampleMedian(l[left : right + 1] , 5)
+    vlen = 5
+    vperno = sampleMedian(l[left : right + 1] , vlen)
     
     # Il resto del codice è analogo a quello del quickSelectRand
     
