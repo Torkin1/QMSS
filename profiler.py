@@ -1,97 +1,129 @@
+"""
+File name: profiler.py
+Authors: Mihai Jianu, Daniele La Prova, Lorenzo Mei
+Python version: 3.x
+
+Script di profiling per gli algoritmi di ordinamento
+
+$ python3 -m profiler -h
+usage: python -m main [-h] [-m] [-r] [-d] [-o] size range
+
+profiles quickSelectionSort execution time with major sorting algorithms
+
+positional arguments:
+  size                 size of the list
+  range                maximum range of values generated
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -m, --median         includes quickSelectSort with sampleMedianSelect
+  -r, --random         inlcudes quickSelectSort with quickSelectRand
+  -d, --deterministic  includes quickSelectSort with quickSelectDet
+  -o, --others         inlcudes major sorting algorithms
+
+"""
+from sys import argv
 import QMSS_module
 import argparse
-import cProfile
+from cProfile import run
 import pstats
-import random
+from random import randint
 from sorting.Sorting import *
-
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser( "python -m main", epilog = "written by Mihai Jianu, Daniele La Prova, Lorenzo Mei", description = "profiles quickSelectionSort execution time with major sorting algorithms")
+    parser = argparse.ArgumentParser( "$ python3 -m profiler", epilog = "written by Mihai Jianu, Daniele La Prova, Lorenzo Mei", description = "profiles quickSelectionSort execution time with major sorting algorithms")
     
     parser.add_argument("-m", "--median", help = "includes quickSelectSort with sampleMedianSelect", action = "store_true")
     parser.add_argument("-r", "--random", help = "inlcudes quickSelectSort with quickSelectRand", action = "store_true")
     parser.add_argument("-d", "--deterministic", help = "includes quickSelectSort with quickSelectDet", action = "store_true")
+    parser.add_argument("-o", "--others", help = "inlcudes major sorting algorithms", action = "store_true")
     parser.add_argument("size", type = int, help = "size of the list")
-
+    parser.add_argument("range", type = int, help = "maximum range of values generated")
+    
     args = parser.parse_args()
 
-    l = [random.randint(0, 100) for i in range(args.size)]
+    l = [randint(0, args.range) for i in range(args.size)]
     temp = l.copy()
 
     #print(l)
 
     if args.median:
 
-    	cProfile.run('QMSS_module.quickSelectSort(l, 0)', 'stats.txt')
+    	run('QMSS_module.quickSelectSort(l, 0)', 'stats.txt')
     	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
     if args.random:
 
-    	cProfile.run('QMSS_module.quickSelectSort(l, 1)', 'stats.txt')
+    	run('QMSS_module.quickSelectSort(l, 1)', 'stats.txt')
     	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
     if args.deterministic:
 
-    	cProfile.run('QMSS_module.quickSelectSort(l, 2)', 'stats.txt')
+    	run('QMSS_module.quickSelectSort(l, 2)', 'stats.txt')
     	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
-
 
     #print(l)
 
-    #Execution of selectionSort
+    if args.others:
+    
+        #Execution of selectionSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('selectionSort(l)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('selectionSort(l)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of insertionSort
+        #Execution of insertionSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('insertionSortDown(l)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('insertionSortDown(l)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of bubbleSort
+        #Execution of bubbleSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('bubbleSort(l)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('bubbleSort(l)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of mergeSort
+        #Execution of mergeSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('mergeSort(l)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('mergeSort(l)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of quickSort
+        #Execution of quickSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('quickSort(l)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('quickSort(l)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of heapSort
+        #Execution of heapSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('heapSort(l)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('heapSort(l)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of radixSort
+        #Execution of radixSort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('radixSort(l, 100, 10)', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('radixSort(l, 100, 10)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
-    #Execution of Sort
+        #Execution of Sort
 
-    l = temp.copy()
+        l = temp.copy()
 
-    cProfile.run('l.sort()', 'stats.txt')
-    pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('l.sort()', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+
+    if not args.median and not args.random and not args.deterministic and not args.others:
+         print ("No algorithms specified, so  no actions were performed")
+         print ("use -h, --help flags for help")
+
