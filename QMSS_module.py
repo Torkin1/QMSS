@@ -88,4 +88,4 @@ def sampleMedian (l, m):
 
    # return V[int(len(V) / 2)]
 
-    return trivialSelect(V, ceil(len(V) / 2))n
+    return trivialSelect(V, ceil(len(V) / 2))
