@@ -1,57 +1,103 @@
+"""
+File name: QMSS_module.py
+Authors: Mihai Jianu, Daniele La Prova, Lorenzo Mei
+Python version: 3.x
+
+QMSS_module contiene le definizioni di:
+    
+    quickSelectSort(l, select)
+    recursiveQuickSelectSort(l, left, right, select)
+    sampleMedianSelect(l, left, right, k)
+    sampleMedian(l, offset)
+
+"""
 from selection.__init__ import printSwitch
-from random import *
-from selection.Selection import partitionDet, recursiveQuickSelectRand, recursiveQuickSelectDet, condOutput
+from random import randint
+from math import ceil
+from selection.Selection import partitionDet, recursiveQuickSelectRand, recursiveQuickSelectDet, trivialSelect, quickSelectRand
 
 def quickSelectSort(l, select):
+    """
+    @param l: list of integers
+    @param select: int, { 0 = sampleMedianSelect, 1 = quickSelectRand, 
+                          2 = quickSelectDet }
+    
+    @return None, side effect: calls recursiveQuickSelectSort
+
+    Esegue un quickSort sulla lista l chiamando recursiveQuickSelectSort,
+    partizionando attorno a un pivot estrattotramite l'algoritmo di selezione
+    indicato da select.
+
+    """
     assert type(l) == list, "Error! Not a list"
 
     recursiveQuickSelectSort(l, 0, len(l) - 1, select)
 
 
 def recursiveQuickSelectSort(l, left, right, select):
+    """
+    @param l: input list of integers
+    @param left: int
+    @param right: int
+    @param select: int
 
-    k = int((left + right) / 2) + 1
+    @return None, side effect: sorts list
 
+    Nucleo ricorsivo di quickSelectSort.
+
+    """
+    k = int((left + right) / 2) + 1 
+    
     if left >= right:
         return
 
-    if select == 0:
+    elif select == 0:
         pivot = sampleMedianSelect(l, left, right, k)
     
-    elif select == 1 and not (k <= 0 or k > len(l)):
+    elif select == 1:
         pivot = recursiveQuickSelectRand(l, left, right, k)
     
-    elif select == 2 and not (k <= 0 or k > len(l)):
+    elif select == 2:
         pivot = recursiveQuickSelectDet(l, left, right, k, 10, "QuickSelectDet")
 
     #print(pivot)
     #print("({},{})".format(left, right))
+
     pIndex = partitionDet(l, left, right, pivot)
+    
     #print(l)
+
     recursiveQuickSelectSort(l, left, pIndex - 1, select)
+
     #print("({},{})".format(left, right))
     #print(l)
+    
     recursiveQuickSelectSort(l, pIndex + 1, right, select)
+
     #print("({},{})".format(left, right))
     #print(l)
 
 
 def sampleMedianSelect(l, left, right, k):
     """
-    #@param l: list 
-    #@return pivot: int
+    @param l: list
+    @param left: int
+    @param right: int
+    @param k: int, elemento da estrarre
+    @return int
 
-    #Si assuma che m sia uguale a 5
-    #Costruisco l'insieme V di 5 elementi scelti a caso da l
-    
+    Estrae l'elemento k dalla lista l, partizionando attorno a un pivot calcolato
+    chiamando sampleMedian.
+
     """
     if left == right:
         return l[left]
     
-    vlen = 5        # vlen (o m) va scelto secondo un criterio ancora da definire
-    vperno = sampleMedian(l[left : right + 1] , vlen)
+    #lenTuple = int(len(l) / 1000)
+    #lenTuple = 500 if len(l) == 50k
+    vperno = sampleMedian(l[left : right + 1] , lenTuple) # m = ceil(int((right - left + 1)/ 5))
     
-    # Il resto del codice è analogo a quello del quickSelectRand
+    #print(f"vperno is {vperno}")
     
     perno = partitionDet(l, left, right, vperno)
 
@@ -63,30 +109,30 @@ def sampleMedianSelect(l, left, right, k):
     else:
         return sampleMedianSelect(l, perno + 1, right, k)
     
-def sampleMedian (l, m):  
-   
-    i = 0
-    V = []
-    temp = l.copy()
-
-    while i < m and len(temp) != 0:
-        lenTemp = len(temp) 
-        index = randint(0, lenTemp - 1)
-        V.append(temp.pop(index))
-        i += 1
-
-    #Effettuo un selection sort sui primi len(V)/2 elementi.
-    #L'elemento alla posizione len(V) / 2 elemento sarà il mediano di V
+def sampleMedian (l, offset):  
+    """
+    @param l: list
+    @param offset: int, grandezza delle tuple
     
-    for k in range(0, int(len(V) / 2)):
+    @return int
 
-        min_pos = k
-        for j in range(k + 1, len(V)):
-            if V[j] < V[min_pos]:
-                min_pos = j
+    Costruisce un sottinsieme V di l partizionando quest'ultima
+    in len(l) / offset tuple, estraendo un elemento a caso da ciascuna tupla e
+    inserendolo in V. Se len(V) > 5, ripete ricorsivamente le suddette operazioni,
+    altrimenti si calcola il mediano di V e lo restituisce.
 
-        V[min_pos], V[k] = V[k], V[min_pos]  # mette m al posto giusto
+    """
+    if len(l) <= offset:
+        
+        return quickSelectRand(l, int(len(l) / 2) + 1)
 
-    return V[int(len(V) / 2)]
-
-
+    else:
+        temp = []
+        for i in range(0, len(l), offset):
+            
+            oneTuple = [l[j] for j in range(i, i + offset) if j < len(l)]
+       #     print(f"tuple is {oneTuple}")
+            temp.append(oneTuple[randint(0, len(oneTuple) - 1)])
+       #     print (f"temp is {temp}")
+        
+        return sampleMedian(temp, offset)
