@@ -77,15 +77,15 @@ def sampleMedian (l, m):
     #Effettuo un selection sort sui primi len(V)/2 elementi.
     #L'elemento alla posizione len(V) / 2 elemento sarà il mediano di V
     
-    for k in range(0, int(len(V) / 2)):
+    #for k in range(0, int(len(V) / 2)):
 
-        min_pos = k
-        for j in range(k + 1, len(V)):
-            if V[j] < V[min_pos]:
-                min_pos = j
+     #   min_pos = k
+      #  for j in range(k + 1, len(V)):
+       #     if V[j] < V[min_pos]:
+        #        min_pos = j
 
-        V[min_pos], V[k] = V[k], V[min_pos]  # mette m al posto giusto
+       # V[min_pos], V[k] = V[k], V[min_pos]  # mette m al posto giusto
 
-    return V[int(len(V) / 2)]
+   # return V[int(len(V) / 2)]
 
- 
+    return trivialSelect(V, ceil(len(V) / 2))n
