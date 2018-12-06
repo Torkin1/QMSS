@@ -50,18 +50,21 @@ if __name__ == "__main__":
 
     if args.median:
 
-    	run('QMSS_module.quickSelectSort(l, 0)', 'stats.txt')
-    	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
-
+        run('QMSS_module.quickSelectSort(l, 0)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        l = temp.copy()
+    
     if args.random:
 
-    	run('QMSS_module.quickSelectSort(l, 1)', 'stats.txt')
-    	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('QMSS_module.quickSelectSort(l, 1)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        l = temp.copy()
 
     if args.deterministic:
 
-    	run('QMSS_module.quickSelectSort(l, 2)', 'stats.txt')
-    	pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        run('QMSS_module.quickSelectSort(l, 2)', 'stats.txt')
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        l = temp.copy()
 
     #print(l)
 
@@ -69,11 +72,8 @@ if __name__ == "__main__":
     
         #Execution of selectionSort
 
-        l = temp.copy()
-
         run('selectionSort(l)', 'stats.txt')
         pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
-
         #Execution of insertionSort
 
         l = temp.copy()
