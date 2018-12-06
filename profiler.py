@@ -1,4 +1,3 @@
-me: profiler.py
 """
 Authors: Mihai Jianu, Daniele La Prova, Lorenzo Mei
 Python version: 3.x

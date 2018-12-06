@@ -94,6 +94,8 @@ def sampleMedianSelect(l, left, right, k):
         return l[left]
     
     lenTuple = ceil(len(l) / 100)
+    if lenTuple == 1:
+         lenTuple += 1
     #lenTuple = 500 if len(l) == 50k
     vperno = sampleMedian(l[left : right + 1] , lenTuple) # m = ceil(int((right - left + 1)/ 5))
     
