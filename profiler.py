@@ -118,5 +118,5 @@ if __name__ == "__main__":
         pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
 
     if not args.median and not args.random and not args.deterministic and not args.others:
-         print ("No algorithms specified, so  no actions were performed")
-         print ("use -h, --help flags for help")
+        print ("No algorithms specified, so  no actions were performed")
+        print ("use -h, --help flags for help")
