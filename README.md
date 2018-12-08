@@ -1,6 +1,6 @@
-**QSS**:
+# QSS
 
-La presente repository contiene i file relativi allo svolgimento della seconda traccia della prova pratica.
+La repository contiene i file relativi allo svolgimento della seconda traccia della prova pratica.
 
 Maggiori informazioni su scelte implementative, raccolta dati e in generale del lavoro svolto sono disponibili nel file ``documentazione.pdf``.
 
