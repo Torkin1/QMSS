@@ -17,7 +17,7 @@ optional arguments:
   -o, --others         inlcudes major sorting algorithms
 """
 from sys import argv
-import QMSS_module
+import QSS_module
 import argparse
 from cProfile import run
 import pstats
