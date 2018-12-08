@@ -1,4 +1,4 @@
-# QSS
+# QSS - QuickSelectionSort
 
 La repository contiene i file relativi allo svolgimento della seconda traccia della prova pratica.
 
