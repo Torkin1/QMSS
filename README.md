@@ -11,7 +11,7 @@ Il codice si presenta con lo script principale, ``profiler.py``, dove vengono pa
 Tale lavoro di profiling è reso disponibile grazie all'implementazione del modulo ``cProfile``, che scrive in un file in un formato proprio i tempi di esecuzione delle funzioni. Il modulo ``pStats``, invece, consente di leggere ciò che è presente all’interno di questo 
 file e stampa a schermo il suo contenuto.
 
-Per maggiori informazioni sulle modalità di utilizzo, consultare il file ``README_profiler.txt``.
+Per maggiori informazioni, consultare ``README_profiler.txt``.
 
 **QSS_module.py:**
 
@@ -20,7 +20,9 @@ del pivot avviene tramite algoritmi di selezione. Si è scelto di implementare u
 in input una lista ed un parametro che indica quale tra gli algoritmi di selezione dovrà essere eseguito. Questa funzione
 richiama a sua volta la funzione ``recursiveQuickSelectSort`` che, a differenza della prima, prende in più in input due 
 parametriche indicano l’inizio e la fine della lista, estrae il pivot con l’algoritmo di selezione scelto, crea la 
-partizione ed infine, ricorsivamente, risolve lo stesso problema nelle sottoliste. 
+partizione ed infine, ricorsivamente, risolve lo stesso problema nelle sottoliste.
+
+Per maggiori informazioni, consultare ``README_QSS_module.md``.
 
 **sorting, selection, strutture:**
 
