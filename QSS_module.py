@@ -1,5 +1,5 @@
 """
-file name: QMSS_module.py
+file name: QSS_module.py
 Authors: Mihai Jianu, Daniele La Prova, Lorenzo Mei
 Python version: 3.x
 
