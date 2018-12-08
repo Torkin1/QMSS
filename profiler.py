@@ -51,7 +51,8 @@ if __name__ == "__main__":
     if args.median:
 
         run('QSS_module.quickSelectSort(l, 0)', 'stats.txt')
-        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
+        pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats() 
+    #    print(l) 
         l = temp.copy()
     
     if args.random:
@@ -66,7 +67,7 @@ if __name__ == "__main__":
         pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
         l = temp.copy()
 
-    #print(l)
+#    print(l)
 
     if args.others:
     
