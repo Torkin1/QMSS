@@ -11,7 +11,7 @@ Il codice si presenta con lo script principale, ``profiler.py``, dove vengono pa
 Tale lavoro di profiling è reso disponibile grazie all'implementazione del modulo ``cProfile``, che scrive in un file in un formato proprio i tempi di esecuzione delle funzioni. Il modulo ``pStats``, invece, consente di leggere ciò che è presente all’interno di questo 
 file e stampa a schermo il suo contenuto.
 
-Per maggiori informazioni, consultare ``README_profiler.txt``.
+Per maggiori informazioni, consultare ``README_profiler.md``.
 
 **QSS_module.py:**
 
