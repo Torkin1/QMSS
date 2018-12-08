@@ -22,7 +22,13 @@ richiama a sua volta la funzione ``recursiveQuickSelectSort`` che, a differenza 
 parametriche indicano l’inizio e la fine della lista, estrae il pivot con l’algoritmo di selezione scelto, crea la 
 partizione ed infine, ricorsivamente, risolve lo stesso problema nelle sottoliste. 
 
-**sorting, selection, strutture**
+**sorting, selection, strutture:**
 
 Nelle cartelle selection, sorting e strutture sono presenti i moduli d’appoggio richiamati all’interno di ``profiler.py``
 e di ``QSS_module.py``, contenenti rispettivamente le definizioni degli algoritmi di selezione, di ordinamento e delle strutture dati. 
+
+**Autori:**
+
+- Mihai Jianu       *matricola*
+- Daniele La Prova  *matricola*
+- Lorenzo Mei       *matricola*
