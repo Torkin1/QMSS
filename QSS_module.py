@@ -2,11 +2,12 @@
 file name: QMSS_module.py
 Authors: Mihai Jianu, Daniele La Prova, Lorenzo Mei
 Python version: 3.x
-QMSS_module contiene le definizioni di:
-quickSelectSort(l, select)
-recursiveQuickSelectSort(l, left, right, select)
-sampleMedianSelect(l, left, right, k)
-sampleMedian(l, offset)
+
+QSS_module contiene le definizioni di:
+   - quickSelectSort(l, select)
+   - recursiveQuickSelectSort(l, left, right, select)
+   - sampleMedianSelect(l, left, right, k)
+   - sampleMedian(l, offset)
 """
 from selection.__init__ import printSwitch
 from random import randint
