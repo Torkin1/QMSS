@@ -1,6 +1,6 @@
 # profiler.py
 ```
-python3.x -m profiler -h
+python[3.x] -m profiler -h
 ```
 ```
 usage: $ python3 -m profiler [-h] [-m] [-r] [-d] [-o] size range
