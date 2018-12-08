@@ -25,7 +25,7 @@ FUNCTIONS
                               2 = quickSelectDet }
         @return None, side effect: calls recursiveQuickSelectSort
         Esegue un quickSort sulla lista l chiamando recursiveQuickSelectSort,
-        partizionando attorno a un pivot estrattotramite l'algoritmo di selezione
+        partizionando attorno a un pivot estratto tramite l'algoritmo di selezione
         indicato da select.
     
     recursiveQuickSelectSort(l, left, right, select)
