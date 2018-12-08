@@ -30,5 +30,5 @@ e di ``QSS_module.py``, contenenti rispettivamente le definizioni degli algoritm
 **Autori:**
 
 - Mihai Jianu       *matricola*
-- Daniele La Prova  *matricola*
+- Daniele La Prova   0253508
 - Lorenzo Mei       *matricola*
