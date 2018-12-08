@@ -24,5 +24,5 @@ partizione ed infine, ricorsivamente, risolve lo stesso problema nelle sottolist
 
 **sorting, selection, strutture**
 
-Nelle cartelle selection, sorting e strutture sono presenti i moduli d’appoggio richiamati all’interno di profiler.py
-e di QSS_module.py, contenenti rispettivamente le definizioni degli algoritmi di selezione, di ordinamento e delle strutture dati. 
+Nelle cartelle selection, sorting e strutture sono presenti i moduli d’appoggio richiamati all’interno di ``profiler.py``
+e di ``QSS_module.py``, contenenti rispettivamente le definizioni degli algoritmi di selezione, di ordinamento e delle strutture dati. 
