@@ -117,12 +117,12 @@ def sampleMedian (l, offset):
       return quickSelectRand(l, int(len(l) / 2) + 1)
 
    else:
-      temp = []
+      V = []
    for i in range(0, len(l), offset):
 
       oneTuple = [l[j] for j in range(i, i + offset) if j < len(l)]
       # print(f"tuple is {oneTuple}")
-      temp.append(oneTuple[randint(0, len(oneTuple) - 1)])
-      # print (f"temp is {temp}")
+      V.append(oneTuple[randint(0, len(oneTuple) - 1)])
+      # print (f"V is {V}")
 
-   return sampleMedian(temp, offset)
+   return sampleMedian(V, offset)
