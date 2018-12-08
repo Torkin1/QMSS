@@ -1,6 +1,8 @@
 # profiler.py
 ```
 python3.5 -m profiler -h
+```
+```
 usage: $ python3 -m profiler [-h] [-m] [-r] [-d] [-o] size range
 
 profiles quickSelectionSort execution time with major sorting algorithms
