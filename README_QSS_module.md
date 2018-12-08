@@ -1,5 +1,8 @@
-# QSS_module
-
+# QSS_module.py
+```
+>>> import QSS_module
+>>> help(QSS_module)
+```
 ```
 NAME
     QSS_module
