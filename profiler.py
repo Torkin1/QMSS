@@ -50,19 +50,19 @@ if __name__ == "__main__":
 
     if args.median:
 
-        run('QMSS_module.quickSelectSort(l, 0)', 'stats.txt')
+        run('QSS_module.quickSelectSort(l, 0)', 'stats.txt')
         pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
         l = temp.copy()
     
     if args.random:
 
-        run('QMSS_module.quickSelectSort(l, 1)', 'stats.txt')
+        run('QSS_module.quickSelectSort(l, 1)', 'stats.txt')
         pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
         l = temp.copy()
 
     if args.deterministic:
 
-        run('QMSS_module.quickSelectSort(l, 2)', 'stats.txt')
+        run('QSS_module.quickSelectSort(l, 2)', 'stats.txt')
         pstats.Stats('stats.txt').strip_dirs().sort_stats("time").print_stats()
         l = temp.copy()
 
