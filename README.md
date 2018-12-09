@@ -33,4 +33,4 @@ e di ``QSS_module.py``, contenenti rispettivamente le definizioni degli algoritm
 
 - Mihai Jianu        0255043
 - Daniele La Prova   0253508
-- Lorenzo Mei       *matricola*
+- Lorenzo Mei        0251766
