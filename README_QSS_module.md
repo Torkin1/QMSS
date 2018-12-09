@@ -42,7 +42,7 @@ FUNCTIONS
         @return int
         Costruisce un sottinsieme V di l partizionando quest'ultima
         in len(l) / offset tuple, estraendo un elemento a caso da ciascuna tupla e
-        inserendolo in V. Se len(V) > 5, ripete ricorsivamente le suddette operazioni,
+        inserendolo in V. Se len(V) > offset, ripete ricorsivamente le suddette operazioni,
         altrimenti si calcola il mediano di V e lo restituisce.
     
     sampleMedianSelect(l, left, right, k)
