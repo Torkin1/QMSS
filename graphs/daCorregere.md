@@ -1,0 +1,3 @@
+- Ci sono errori grammaticali nei grafici (numero di **elementi**);
+- Il nome dei grafici non rispecchia la reale scala utilizzata (c'è scritto da 1k a 10k quando in realtà vanno da 0 a 100k);
+- Scrivere solo "tempo" non va bene, bisogna scrivere l'unità di misura (secondi o frazioni di essi);
