@@ -59,9 +59,9 @@ if __name__ == "__main__":
     if args.nearlysorted:
        # print (args.nearlysorted)
        # print (l)
-        b = l[0:ceil(args.size * (args.nearlysorted/100))]
+        b = l[0:int(args.size * (args.nearlysorted/100))]
         b.sort()
-        l = b + l[ceil(args.size * (args.nearlysorted/100)):]
+        l = b + l[int(args.size * (args.nearlysorted/100)):]
       #  print (l)
     
     elif args.reversed:
