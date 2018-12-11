@@ -21,8 +21,8 @@ optional arguments:
   -r, --random         inlcudes quickSelectSort with quickSelectRand
   -d, --deterministic  includes quickSelectSort with quickSelectDet
   -o, --others         inlcudes major sorting algorithms
-  -ns [fraction], --nearlysorted [fraction]
-                        uses a list with first site / fraction elements sorted
+  -ns [percentage], --nearlysorted [percentage]
+                        uses a list with given percentage of elements sorted
                         as input
   -re, --reversed       uses a reverse sorted list as input
 """
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     parser.add_argument("size", type=int, help="size of the list")
     parser.add_argument("range", type=int, help="maximum range of values generated")
 
-    parser.add_argument("-ns", "--nearlysorted", type = int, help = "uses a list with first size / fraction elements sorted as input", nargs ="?", metavar = "fraction", const = 0, action = "store")
+    parser.add_argument("-ns", "--nearlysorted", type = int, help = "uses a list with first size / fraction elements sorted as input", nargs ="?", metavar = "percentage", const = 0, action = "store")
     parser.add_argument("-re", "--reversed", help = "uses a reverse sorted list as input", action= "store_true")
 
     args = parser.parse_args()
@@ -59,9 +59,9 @@ if __name__ == "__main__":
     if args.nearlysorted:
        # print (args.nearlysorted)
        # print (l)
-        b = l[0:ceil(args.size/args.nearlysorted)]
+        b = l[0:ceil(args.size * (args.nearlysorted/100))]
         b.sort()
-        l = b + l[ceil(args.size/args.nearlysorted):]
+        l = b + l[ceil(args.size * (args.nearlysorted/100)):]
       #  print (l)
     
     elif args.reversed:
