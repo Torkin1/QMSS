@@ -2,7 +2,7 @@
 
 La repository contiene i file relativi allo svolgimento della seconda traccia della prova pratica.
 
-Maggiori informazioni su scelte implementative, raccolta dati e in generale del lavoro svolto sono disponibili nel file ``documentazione.pdf``.
+Maggiori informazioni su scelte implementative, raccolta dati e in generale del lavoro svolto sono disponibili nel file ``Relazione.pdf``.
 
 **Profiler.py:**
 
@@ -27,7 +27,11 @@ Per maggiori informazioni, consultare ``README_QSS_module.md``.
 **sorting, selection, strutture:**
 
 Nelle cartelle selection, sorting e strutture sono presenti i moduli d’appoggio richiamati all’interno di ``profiler.py``
-e di ``QSS_module.py``, contenenti rispettivamente le definizioni degli algoritmi di selezione, di ordinamento e delle strutture dati. 
+e di ``QSS_module.py``, contenenti rispettivamente le definizioni degli algoritmi di selezione, di ordinamento e delle strutture dati.
+
+**Graphs:**
+
+In tale cartella sono presenti i grafici e le tabelle con i dati raccolti sperimentalmente.
 
 **Autori:**
 
