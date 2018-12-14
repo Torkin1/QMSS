@@ -34,7 +34,6 @@ DESCRIPTION
      -d, --deterministic   includes quickSelectSort with quickSelectDet
      -o, --others          inlcudes major sorting algorithms
      -ns [percentage], --nearlysorted [percentage]
-                        uses a list with first size / fraction elements sorted
-                        as input
+                           uses a list which given percentage of elements is already sorted
      -re, --reversed       uses a reverse sorted list as input
 ```
